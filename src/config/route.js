@@ -1,5 +1,5 @@
 export const ROUTE = {
     HOME : "/",
     LISTEPOKEMON : "/pokemons",
-    DETAILPOKEMON: "/pokemon/1",   
+    DETAILPOKEMON: "/pokemon/:id",   
 }

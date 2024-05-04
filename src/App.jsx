@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route path={ROUTE.HOME} element={<Home/>} />
             <Route path={ROUTE.LISTEPOKEMON} element={<ListePokemons />} />
-            <Route path={ROUTE.DETAILPOKEMON} element={<ListePokemons />} />
+            <Route path={ROUTE.DETAILPOKEMON} element={<DetailPokemon />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           </PersistGate>
@@ -31,5 +31,6 @@ import ListePokemons from './pages/Pokemon'
 import { NotFound } from './pages/Errors'
 import { Provider } from 'react-redux'
 import Home from './pages/Home'
+import DetailPokemon from './pages/Detail'
 
 export default App

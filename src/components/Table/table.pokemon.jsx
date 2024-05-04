@@ -1,5 +1,6 @@
 import React from "react";
 import Liste from "../Liste";
+import { Link } from "react-router-dom";
 
 export const Table = (props) => {
 
@@ -31,7 +32,7 @@ export const Table = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {data.map((pokemon,index) => {
+                                {data && data?.map((pokemon,index) => {
 
                                     const styleHP=pokemon?.stats?.HP>49?"":"";
 
@@ -63,7 +64,7 @@ export const Table = (props) => {
                                             </td>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                 <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                                    <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
+                                                    <span aria-hidden="true" className={`absolute inset-0 ${pokemon?.stats?.HP<49?'bg-red-400':'bg-green-200'} rounded-full opacity-50`}>
                                                     </span>
                                                     <span className="relative">
                                                         {pokemon?.stats?.HP}
@@ -71,9 +72,9 @@ export const Table = (props) => {
                                                 </span>
                                             </td>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                    Edit
-                                                </a>
+                                                <Link to={`/pokemon/${pokemon.id}`} className="text-indigo-600 hover:text-indigo-900">
+                                                    Détail
+                                                </Link>
                                             </td>
                                         </tr>
                                     )

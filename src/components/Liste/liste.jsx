@@ -7,7 +7,7 @@ const Liste = (props) => {
     return (
         <div className="container flex flex-col items-center justify-center w-full mx-auto">
             <ul className="flex flex-col">
-                {data.map((type, index)=>{
+                {data && data?.map((type, index)=>{
 
                     return (
                         <li key={index} className="flex flex-row mb-2 border-gray-400">
