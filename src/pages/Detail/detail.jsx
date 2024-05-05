@@ -17,13 +17,20 @@ const Detail = () => {
             <div className="flex items-center justify-center w-3/5">
                 <div className="w-full p-4">
                     <div className="flex flex-col justify-center p-10 bg-white rounded-lg shadow-2xl card">
+                        
                         <div className="prod-title">
+                        <button class="p-2 text-white bg-blue-500 rounded-full">
+                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z">
+                                </path>
+                            </svg>
+                        </button>
                             <p className="text-2xl font-bold text-gray-900 uppercase">
                                 {pokemon?.name ?? ""}
                             </p>
                         </div>
                         <div className="prod-img justify-center">
-                            <img src={pokemon.image} className="object-cover object-center w-56 mx-auto" />
+                            <img src={pokemon.image} alt={pokemon.name} className="object-cover object-center w-56 mx-auto" />
                         </div>
                         <div className="grid gap-10 prod-info">
                             <div>
@@ -55,47 +62,47 @@ const Detail = () => {
                                     <p class="flex flex-col">
                                         Attack
                                         <span class="font-bold text-black dark:text-indigo-500">
-                                        {pokemon?.stats?.attack}
+                                            {pokemon?.stats?.attack}
                                         </span>
                                     </p>
                                     <p class="flex flex-col">
                                         Defense
                                         <span class="font-bold text-black dark:text-indigo-500">
-                                        {pokemon?.stats?.defense ?? ""}
+                                            {pokemon?.stats?.defense ?? ""}
                                         </span>
                                     </p>
                                     <p class="flex flex-col">
                                         Special_attack
                                         <span class="font-bold text-black dark:text-indigo-500">
-                                        {pokemon?.stats?.special_attack ?? ""}
+                                            {pokemon?.stats?.special_attack ?? ""}
                                         </span>
                                     </p>
                                     <p class="flex flex-col">
-                                    Special_defense
+                                        Special_defense
                                         <span class="font-bold text-black dark:text-indigo-500">
-                                        {pokemon?.stats?.special_defense ?? ""}
+                                            {pokemon?.stats?.special_defense ?? ""}
                                         </span>
                                     </p>
                                     <p class="flex flex-col">
-                                    Speed
+                                        Speed
                                         <span class="font-bold text-black dark:text-indigo-500">
-                                        {pokemon?.stats?.speed ?? ""}
+                                            {pokemon?.stats?.speed ?? ""}
                                         </span>
                                     </p>
                                 </div>
                             </div>
-                                <div className="flex flex-col items-center justify-center text-gray-900 md:flex-row ">
-                                    <button className="px-6 py-2 uppercase transition duration-200 ease-in border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:text-white focus:outline-none">
-                                        Add Favoris
-                                    </button>
-                                </div>
+                            <div className="flex flex-col items-center justify-center text-gray-900 md:flex-row ">
+                                <button className="px-6 py-2 uppercase transition duration-200 ease-in border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:text-white focus:outline-none">
+                                    Add Favoris
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            )
+    )
 }
 
-            export default Detail
+export default Detail
