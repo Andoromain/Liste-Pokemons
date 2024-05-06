@@ -1,10 +1,11 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 
 const Detail = () => {
     const data = useSelector(state => state.pokemons.data);
     const { id } = useParams();
+    const navigate=useNavigate();
 
     const pokemon = useMemo(() => {
         const pokemonId = parseInt(id, 10);
@@ -19,7 +20,7 @@ const Detail = () => {
                     <div className="flex flex-col justify-center p-10 bg-white rounded-lg shadow-2xl card">
                         
                         <div className="prod-title">
-                        <button class="p-2 text-white bg-blue-500 rounded-full">
+                        <button class="p-2 text-white bg-blue-500 rounded-full" onClick={()=>{navigate(-1)}}>
                             <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z">
                                 </path>

@@ -10,6 +10,9 @@ export const Pokemon = () => {
     const types = useSelector(state => state.pokemons.types)
     const [selectedType, setSelectedType] = useState([]);
 
+    const choice=[10,20,50,100]
+    const [limit,setLimit]=useState(10);
+
     const [searchPokemon, setSearchPokemon] = useState('');
     const [filterPokemons, setFilterPokemons] = useState([]);
     const dispatch = useDispatch();
@@ -66,8 +69,8 @@ export const Pokemon = () => {
 
     return (
         <div className="bg-gray-100 ">
-            <Filtration searchPokemon={searchPokemon} handleChange={handleChange} types={types} selectedType={selectedType} handleCheckboxChange={handleCheckboxChange} />
-            <Table data={(selectedType.length > 0 || searchPokemon.length > 0) ? filterPokemons : pokemons} />
+            <Filtration limit={limit} setLimit={setLimit} choice={choice} searchPokemon={searchPokemon} handleChange={handleChange} types={types} selectedType={selectedType} handleCheckboxChange={handleCheckboxChange} />
+            <Table limit={limit} data={(selectedType.length > 0 || searchPokemon.length > 0) ? filterPokemons : pokemons} />
         </div>
     )
 }
