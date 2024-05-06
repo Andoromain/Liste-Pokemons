@@ -8,8 +8,6 @@ const Pagination = ({ total, limit, setPage }) => {
     return Math.ceil(total / limit);
   }, [limit, total])
 
-  console.log(limit)
-
   const pages = useMemo(() => {
     return Array.from({ length: numPages }, (_, i) => i + 1);
   }, [numPages]);

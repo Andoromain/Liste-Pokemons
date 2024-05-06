@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import Liste from "../Liste";
 import { Link } from "react-router-dom";
 import { Pagination } from "../Pagintion";
+import Skeleton from "../Skeleton";
 
 export const Table = (props) => {
 
-    const { data, limit } = props
+    const { data, limit,total, isLoading } = props
+    
     const [page, setPage] = useState(1);
-
-    const total = data.length
+    const [currentTotal,setCurrentTotal]=useState(0);
 
     const indexOfLastPokemon = page * limit;
     const indexOfFirstPokemon = indexOfLastPokemon - limit;
-    const currentData = data.slice(indexOfFirstPokemon, indexOfLastPokemon);
+    const currentData = data?.slice(indexOfFirstPokemon, indexOfLastPokemon);
+
+    useEffect(()=>{
+        setCurrentTotal(data?.length ?? 0);
+    },[data])
 
     useEffect(() => {
         const newPage = Math.ceil(page * limit / limit);
@@ -25,7 +30,7 @@ export const Table = (props) => {
             <div className="py-8">
                 <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
                     <div className="grid" style={{ overflow: "auto" }}>
-                        <Pagination total={total} limit={limit} setPage={setPage} />
+                        <Pagination total={currentTotal} limit={limit} setPage={setPage} currentData={currentData} />
                     </div>
                     <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
 
@@ -49,7 +54,9 @@ export const Table = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {currentData && currentData?.map((pokemon, index) => {
+                                {isLoading && <Skeleton />}
+
+                                {!isLoading && currentData && currentData?.map((pokemon, index) => {
 
                                     const styleHP = pokemon?.stats?.HP > 49 ? "" : "";
 

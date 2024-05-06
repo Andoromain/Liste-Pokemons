@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Table } from "../../components/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemons, fetchTypesPokemons } from "../../redux/pokemonSlice";
@@ -8,6 +8,8 @@ export const Pokemon = () => {
 
     const pokemons = useSelector(state => state.pokemons.data)
     const types = useSelector(state => state.pokemons.types)
+    const total = useSelector(state => state.pokemons.total)
+    const isLoading = useSelector(state => state.pokemons.isLoading)
     const [selectedType, setSelectedType] = useState([]);
 
     const choice=[10,20,50,100]
@@ -18,7 +20,6 @@ export const Pokemon = () => {
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        const text = e.target.value
         setSearchPokemon(e.target.value);
 
     }
@@ -70,7 +71,7 @@ export const Pokemon = () => {
     return (
         <div className="bg-gray-100 ">
             <Filtration limit={limit} setLimit={setLimit} choice={choice} searchPokemon={searchPokemon} handleChange={handleChange} types={types} selectedType={selectedType} handleCheckboxChange={handleCheckboxChange} />
-            <Table limit={limit} data={(selectedType.length > 0 || searchPokemon.length > 0) ? filterPokemons : pokemons} />
+            <Table isLoading={isLoading} total={total} limit={limit} data={(selectedType.length > 0 || searchPokemon.length > 0) ? filterPokemons : pokemons} />
         </div>
     )
 }
