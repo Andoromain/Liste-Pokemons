@@ -31,7 +31,7 @@ export const PokemonSlice = createSlice({
       state.pokemons = action.payload;
     },
     setFavoris: (state, action) => {
-        state.favoris = [...state.favoris, action.payload];
+        state.favoris.push(action.payload);
     },
     removeFavoris: (state, action) => {
         state.favoris = state.favoris.filter(
