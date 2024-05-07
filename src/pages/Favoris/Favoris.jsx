@@ -28,7 +28,7 @@ const Favoris = () => {
         }
         {
           !favoris || (favoris && favoris.length === 0) && (
-            <div className="grid place-content-center bg-white px-4" style={{height:'90vh'}}>
+            <div className="grid place-content-center bg-gray-100 px-4" style={{height:'90vh'}}>
               <h1 className="uppercase tracking-widest text-gray-500">Pas de Favoris</h1>
             </div>
           )
