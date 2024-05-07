@@ -15,7 +15,7 @@ const Favoris = () => {
   return (
     <div className="bg-gray-100 ">
       <div className="container px-4 mx-auto sm:px-6 flex flex-wrap justify-center max-h-full">
-      
+
         {
           favoris && favoris?.map((item, index) => {
             return (
@@ -25,6 +25,13 @@ const Favoris = () => {
             )
           })
 
+        }
+        {
+          !favoris || (favoris && favoris.length === 0) && (
+            <div className="grid place-content-center bg-white px-4" style={{height:'90vh'}}>
+              <h1 className="uppercase tracking-widest text-gray-500">Pas de Favoris</h1>
+            </div>
+          )
         }
       </div>
     </div>
