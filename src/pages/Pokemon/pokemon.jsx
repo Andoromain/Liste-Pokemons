@@ -21,7 +21,6 @@ export const Pokemon = () => {
 
     const handleChange = (e) => {
         setSearchPokemon(e.target.value);
-
     }
 
     const handleCheckboxChange = (event) => {
@@ -61,10 +60,7 @@ export const Pokemon = () => {
                 return nameMatch && typeMatch;
             });
 
-            console.log(selectedType)
-
             setFilterPokemons(filters);
-            console.log("mande")
         }
     }, [selectedType, searchPokemon, pokemons, types])
 
