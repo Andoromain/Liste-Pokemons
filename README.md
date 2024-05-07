@@ -2,4 +2,4 @@
 
 Demo
 
--  [SWC]([https://swc.rs/](https://pokemons-ando.netlify.app/)) for Demo
+-  (https://pokemons-ando.netlify.app/) for Demo
